@@ -1,0 +1,35 @@
+body{
+    background-image: url(../images/background_phase_1.png);
+    
+}
+img{
+    height: 100%;
+}
+h1{
+    font-size: 30px;
+}
+
+#main{
+    box-sizing: content-box;
+    position: relative;
+    width: 60%;
+    height: 80%;
+    margin-left: 25%;
+    margin-top: 10%; 
+    background-color: blue;
+    opacity: .4;
+    text-align: center;
+    color: whitesmoke;
+    padding: 30px;
+
+}
+row{
+    opacity: 1.0;
+}
+
+#answer_list{
+    border: solid goldenrod;
+    border-width: 5px;
+    padding: 40px;
+    font-size: 30px;
+}
