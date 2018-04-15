@@ -41,9 +41,19 @@
 //  Decrease number by one.
      time--;
      if(time < 0){
+        alert("Out of time!")
+        score.push("incorrect");
+        if (score.length >= (starwars.length)) {
+            endGame();
+        }
+        else{
+        display_questions();
+        }
+
          time = 6
      }
      $("#timer").text(time)
+     $("#timer").attr("val", time)
      }
 
 
@@ -103,7 +113,7 @@
                 display_questions();
                 }
             }
-            if($("#timer").text() === 0){
+            if($("#timer").text() <= "0"){
                 alert("Out of time!")
                 score.push("incorrect");
                 if (score.length >= (starwars.length)) {
@@ -119,7 +129,7 @@
 
         })
 
-
+        
     
 
     function endGame() {
