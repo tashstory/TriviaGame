@@ -5,7 +5,7 @@
         var intervalId;
         var time_obj = {value: 6};
         var time = {
-            time: 6,
+            time: 9,
         };
         var score = [];
         var x = 0;
@@ -30,7 +30,38 @@
                 correct_answer: "Blue",
                 id: "question_3"
 
-            }
+            },
+
+            question_4 = {
+                question: "What piece of evidence helped Obi-Wan track down the location of Jango Fett? ",
+                answers: ["A tracking device", "He paid for the information", "Mandalorian traitors", "A saber dart"],
+                correct_answer: "A saber dart",
+                id: "question_4"
+
+            },
+
+            question_5 = {
+                question: "What did Anakin build that appears in all 6 of the original starwars movies?",
+                answers: ["R2-D2", "A Pod Racer", "C-3PO", "His own light saber"],
+                correct_answer: "C-3PO",
+                id: "question_5"
+
+            },
+            question_6 = {
+                question: "What Sith is said to have been able to heal others?",
+                answers: ["Darth Bane", "Darth Plagueis", "Darth Revan", "Mahesh Kommareddi"],
+                correct_answer: "Darth Plagueis",
+                id: "question_6"
+
+            },
+            question_7 = {
+                question: "General Grievous was once fully biological, what happened to him?  ",
+                answers: ["He chose cybernetic implants to become more powerful", "Speeder bike accidant on his home planet of Kalee ", "He was partially blown up during a past civil war", "He has self image problems and was hoping surgery would make him look like Kim K"],
+                correct_answer: "He chose cybernetic implants to become more powerful",
+                id: "question_7"
+
+            },
+        
 
         ]
             
@@ -53,7 +84,7 @@
      if(time.time <= 0){
         alert("Out of time!")
         score.push("incorrect");
-        time.time = 6;
+        time.time = 9;
         display_questions()
       
        
@@ -100,7 +131,7 @@
 
             display_questions();
 
-            
+            $("#begin_button").hide()
 
         })
 
@@ -115,7 +146,7 @@
                 }
                 else{
                 display_questions();
-                time.time = 6;
+                time.time = 9;
                 run();
                 }  
                 
@@ -130,7 +161,7 @@
                 }
                 else{
                 display_questions();
-                time.time = 6;
+                time.time = 9;
                 run();
                 } 
                 
