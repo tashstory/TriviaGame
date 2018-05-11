@@ -3,7 +3,10 @@
     $(document).ready(function () {
 
         var intervalId;
-        var time = 6;
+        var time_obj = {value: 6};
+        var time = {
+            time: 6,
+        };
         var score = [];
         var x = 0;
         var z = 0;
@@ -32,28 +35,38 @@
         ]
             
         function run() {
-            
+          
       clearInterval(intervalId);
       intervalId = setInterval(decrement, 1000);
+      if (score.length >= (starwars.length)) {
+        
+        clearInterval(intervalId)
+        endGame();
+        return;
+      }
+    
     }
      function decrement() {
 
 //  Decrease number by one.
-     time--;
-     if(time < 0){
+     time.time--;
+     if(time.time <= 0){
         alert("Out of time!")
         score.push("incorrect");
-        if (score.length >= (starwars.length)) {
-            endGame();
-        }
-        else{
-        display_questions();
-        }
-
-         time = 6
-     }
-     $("#timer").text(time)
-     $("#timer").attr("val", time)
+        time.time = 6;
+        display_questions()
+      
+       
+    }
+    if (score.length >= (starwars.length)) {
+        
+        clearInterval(intervalId)
+        endGame();
+        return;
+      }
+    
+     $("#timer").text(time.time)
+     $("#timer").attr("val", time.time)
      }
 
 
@@ -96,33 +109,34 @@
             if ($(this).text() === starwars[z].correct_answer) {
                 alert("Correct!")
                 score.push("correct");
+               
                 if (score.length >= (starwars.length)) {
                     endGame();
                 }
                 else{
                 display_questions();
-                }
+                time.time = 6;
+                run();
+                }  
+                
             }
             else if ($(this).text() !== starwars[z].correct_answer) {
                 alert("Wrong!")
                 score.push("incorrect");
+                
                 if (score.length >= (starwars.length)) {
                     endGame();
+                    return;
                 }
                 else{
                 display_questions();
-                }
+                time.time = 6;
+                run();
+                } 
+                
             }
-            if($("#timer").text() <= "0"){
-                alert("Out of time!")
-                score.push("incorrect");
-                if (score.length >= (starwars.length)) {
-                    endGame();
-                }
-                else{
-                display_questions();
-                }
-            }
+           
+           
 
             z++
 
@@ -136,6 +150,8 @@
         var correct = 0;
         var incorrect = 0;
        
+        
+        $("#timer").text("Game over") 
         for (var count = 0; count < score.length; count++) {
             if (score[count] === "correct") {
                 correct++
